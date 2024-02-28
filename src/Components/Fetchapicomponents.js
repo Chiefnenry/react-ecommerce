@@ -22,6 +22,7 @@ const Fetchapicomponents = () => {
 
   const handleAddToCart = product => {
     setCartItems(prevCartItems => [...prevCartItems, product]);
+    alert('Item added successfully to cart!');
   };
 
   const handleRemoveFromCart = id => {
@@ -142,6 +143,9 @@ const Fetchapicomponents = () => {
             </li>
           ))}
         </ul>
+        {cartItems.length > 0 && (
+          <button onClick={() => alert('Checkout!')}>Checkout</button>
+        )}
       </div>
 
       {/* Render products */}
