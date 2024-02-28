@@ -27,6 +27,7 @@ const Fetchapicomponents = () => {
 
   const handleRemoveFromCart = id => {
     setCartItems(prevCartItems => prevCartItems.filter(item => item.id !== id));
+    alert('Item has been removed successfully');
   };
 
   const handleSearch = e => {
