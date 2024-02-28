@@ -20,15 +20,17 @@ const Fetchapicomponents = () => {
     setCurrentPage(page);
   };
 
+  // addToCart function
   const handleAddToCart = product => {
     setCartItems(prevCartItems => [...prevCartItems, product]);
     alert('Item added successfully to cart!');
   };
 
+  // remove item function
   const handleRemoveFromCart = id => {
     setCartItems(prevCartItems => prevCartItems.filter(item => item.id !== id));
     alert('Item has been removed successfully');
-  };
+  };          
 
   const handleSearch = e => {
     setSearchTerm(e.target.value);
@@ -74,6 +76,7 @@ const Fetchapicomponents = () => {
     const slicedProducts = filteredProducts.slice(startIndex, endIndex);
 
     return (
+      // here starts my addToCart and Price keys
       <>
         {slicedProducts.map(product => (
           <div key={product.id} className="products">
@@ -99,6 +102,7 @@ const Fetchapicomponents = () => {
   };
 
   return (
+    // the nav-bar starts here!!!
     <>
       <nav className="navbar">
         <div>
@@ -123,6 +127,8 @@ const Fetchapicomponents = () => {
             <a href="#">Contact</a>
           </li>
         </ul>
+
+        {/* here is my search engine input */}
         <div className="search">
           <input
             type="text"
@@ -133,7 +139,7 @@ const Fetchapicomponents = () => {
         </div>
       </nav>
 
-      {/* Cart */}
+      {/* Cart phase*/}
       <div className="cart">
         <h2>Cart</h2>
         <ul>
