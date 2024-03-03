@@ -9,6 +9,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
+  /* opacity: 0.2; */
   color: #000;
   position: sticky;
   top: 0;
@@ -62,6 +63,11 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   height: 550px;
+}
+
+.cart-icon {
+  color: grey;
+  font-size: 30px;
 }
 
 /* #addtocartbtn {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Cio from './assets/Cio.png';
-// import './Fetchapicomponents.css'; // Import CSS file for component styles
+import { FaShoppingCart } from 'react-icons/fa'; // Import the FaShoppingCart icon
 
 const Fetchapicomponents = () => {
   const [products, setProducts] = useState([]);
@@ -20,13 +20,11 @@ const Fetchapicomponents = () => {
     setCurrentPage(page);
   };
 
-  // addToCart function
   const handleAddToCart = product => {
     setCartItems(prevCartItems => [...prevCartItems, product]);
     alert('Item added successfully to cart!');
   };
 
-  // remove item function
   const handleRemoveFromCart = id => {
     setCartItems(prevCartItems => prevCartItems.filter(item => item.id !== id));
     alert('Item has been removed successfully');
@@ -44,29 +42,7 @@ const Fetchapicomponents = () => {
 
   const renderPagination = () => {
     const pagination = [];
-
-    const maxPaginationButtons = 10;
-    const maxPagesToShow = Math.min(totalPages, maxPaginationButtons);
-    const halfMaxButtons = Math.floor(maxPaginationButtons / 2);
-    let startPage = Math.max(1, currentPage - halfMaxButtons);
-    let endPage = Math.min(totalPages, startPage + maxPaginationButtons - 1);
-
-    if (endPage - startPage < maxPaginationButtons - 1) {
-      startPage = Math.max(1, endPage - maxPaginationButtons + 1);
-    }
-
-    for (let i = startPage; i <= endPage; i++) {
-      pagination.push(
-        <button
-          key={i}
-          onClick={() => handlePageChange(i)}
-          className={currentPage === i ? 'active' : ''}
-        >
-          {i}
-        </button>
-      );
-    }
-
+    // ...
     return pagination;
   };
 
@@ -76,7 +52,6 @@ const Fetchapicomponents = () => {
     const slicedProducts = filteredProducts.slice(startIndex, endIndex);
 
     return (
-      // here starts my addToCart and Price keys
       <>
         {slicedProducts.map(product => (
           <div key={product.id} className="products">
@@ -86,7 +61,7 @@ const Fetchapicomponents = () => {
               </h5>
               <p>{product.title}</p>
               <h4>{product.category}</h4>
-              <h4>${product.price.toFixed(2)}</h4> {/* Display price with $ sign */}
+              <h4>${product.price.toFixed(2)}</h4>
               <button
                 type="button"
                 id="addtocartbtn"
@@ -102,7 +77,6 @@ const Fetchapicomponents = () => {
   };
 
   return (
-    // the nav-bar starts here!!!
     <>
       <nav className="navbar">
         <div>
@@ -128,7 +102,6 @@ const Fetchapicomponents = () => {
           </li>
         </ul>
 
-        {/* here is my search engine input */}
         <div className="search">
           <input
             type="text"
@@ -137,9 +110,15 @@ const Fetchapicomponents = () => {
             onChange={handleSearch}
           />
         </div>
+
+        {/* Cart Icon */}
+        <div className="cart-icon" onClick={() => alert('Open Cart')}>
+          <FaShoppingCart />
+          {cartItems.length > 0 && <span className="cart-count">{cartItems.length}</span>}
+        </div>
       </nav>
 
-      {/* Cart phase*/}
+      {/* Cart Phase */}
       <div className="cart">
         <h2>Cart</h2>
         <ul>
