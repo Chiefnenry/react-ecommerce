@@ -43,7 +43,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: brown; /* Change color on hover */
+  color: slategrey; /* Change color on hover */
 }
 
 .nav-links a.active {
@@ -170,6 +170,66 @@ p {
 .pagination button.active {
   background-color: #555;
   color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 50px;
+  align-items: center;
+}
+
+.formpara {
+  text-align: center;
+  font-size: 20px;
+  color: #000;
+  font-style: italic;
+}
+
+form label {
+  color: grey;
+  margin-left: 50px;
+  font-weight: bold;
+  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  letter-spacing: 3px;
+}
+
+form label span {
+  color: slategrey;
+}
+
+form .buttons {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+form .buttons button {
+  border: none;
+  padding: 10px 35px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+form input {
+  width: 600px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.myFormContainer {
+  background-color: #000;
+  height: 50vh;
+}
+
+footer {
+  padding-top: 3rem;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {
